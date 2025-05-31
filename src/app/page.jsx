@@ -1,15 +1,14 @@
 "use client"
-import { Home, User, Briefcase, Mail } from "lucide-react"
-import { useState } from "react"
+import { useRouter } from "next/navigation"
 
-export default function SpacePortfolio() {
-  const [activeNav, setActiveNav] = useState("home")
+export default function landing() {
+  const router = useRouter()
   
   return (
     <div className="min-h-screen bg-black relative overflow-hidden">
         <div className="absolute inset-0 overflow-hidden">
         {/* Shooting stars */}
-{[...Array(500)].map((_, i) => (
+{[...Array(100)].map((_, i) => (
   <div
     key={i}
     className="absolute"
@@ -91,7 +90,7 @@ export default function SpacePortfolio() {
       {/* Fixed bottom navigation */}
 <nav className="fixed bottom-6 left-1/2 transform -translate-x-1/2 z-50">
   <div className="mt-16">
-    <button className="px-8 py-4 bg-black border border-white rounded-full text-white font-medium hover:bg-gradient-to-r hover:from-gray-300 hover:via-gray-200 hover:to-gray-300 hover:text-black transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105">
+    <button className="px-8 py-4 bg-transparent border border-white rounded-full text-white font-medium hover:bg-gradient-to-r hover:from-gray-300 hover:via-gray-200 hover:to-gray-300 hover:text-black hover:font-bold transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105"  onClick={() => router.push("/portfolio")}>
       <span className="font-poppins">
         Explore My Universe
       </span>

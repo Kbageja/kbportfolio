@@ -1,6 +1,7 @@
 "use client"
 import React, { useState } from 'react';
 import { Calendar, Code, Filter, Search, Github, Globe } from 'lucide-react';
+import Image from 'next/image';
 
 export default function ProjectsPage() {
   const [searchTerm, setSearchTerm] = useState('');
@@ -13,7 +14,7 @@ export default function ProjectsPage() {
   const projects = [
     {
       title: "Zwigato E-Commerce Platform",
-      desc: "Full-stack e-commerce solution with payment integration, inventory management, and admin dashboard. Features include user authentication, product catalog, shopping cart, and order tracking.",
+      desc: "Full-stack e-commerce solution with payment integration, Coupon Code Management. Features include user authentication, product catalog, shopping cart, and order History and Reviews system.",
       techStack: "React.js, Node.js, Express.js, MongoDB, RazorPay",
       imageLink: "/zwigato.png",
       date: "2024-04-15",
@@ -22,7 +23,7 @@ export default function ProjectsPage() {
     },
     {
       title: "AI Powered Health Dashboard",
-      desc: "Real-time chat application powered by AI with natural language processing capabilities. Includes message encryption, file sharing, and smart response suggestions.",
+      desc: " Mini Doctor powered by AI . Includes appointment scheduling , reminders , vaccine scheduling with calendar system with AI suggestions.",
       techStack: "Next.js, Gemini API, MongoDB, Typescript",
       imageLink: "/aihealth.png",
       date: "2025-03-22",
@@ -31,7 +32,7 @@ export default function ProjectsPage() {
     },
     {
       title: "Nudgr - Task Management System",
-      desc: "Collaborative project management tool with Kanban boards, team collaboration features, time tracking, and detailed analytics dashboard for productivity insights.",
+      desc: "Smart Task Management Software designed for teams to work in efficient way. Helps to tracks employee's tasks Done  through charts and tables",
       techStack: "Next.js, Express.js, PostgreSQL, Node.js, Supabase , Prisma , Nodemailer , Redis , Typescript , TailwindCSS , FramerMotion",
       imageLink: "/nudgr.png", // This will be converted
       date: "2025-04-10",
@@ -40,7 +41,7 @@ export default function ProjectsPage() {
     },
     {
       title: "Weather Website",
-      desc: "Interactive weather data visualization platform with historical analysis, forecasting models, and customizable alerts for multiple locations worldwide.",
+      desc: "Beginer level project which tells the weather report of different cities based on user demand",
       techStack: "HTML , CSS , Javascript",
       imageLink: "https://images.unsplash.com/photo-1504608524841-42fe6f032b4b?w=800&h=600&fit=crop",
       date: "2023-04-08",
@@ -49,7 +50,7 @@ export default function ProjectsPage() {
     },
     {
       title: "Npm UI Package",
-      desc: "Interactive weather data visualization platform with historical analysis, forecasting models, and customizable alerts for multiple locations worldwide.",
+      desc: "A Npm package which is designed to help you , not designing your UI components . It includes various components like cards , modals , buttons etc",
       techStack: "React.js , Material UI, TailwindCSS",
       imageLink: "/kverse.png",
       date: "2024-04-08",
@@ -58,7 +59,7 @@ export default function ProjectsPage() {
     },
     {
       title: "Bulk Emailer",
-      desc: "Interactive weather data visualization platform with historical analysis, forecasting models, and customizable alerts for multiple locations worldwide.",
+      desc: "A Full Stack Application to send  email together to multiple people on one click. User can create email templates which are stored in Backend and can be used again and again. ",
       techStack: "React.js , MongoDB , TailwindCSS , OpenAI Api, Node.js, NodeMailer , Express.js , ReactQuery",
       imageLink: "/bulkemailer.png",
       date: "2025-02-01",
@@ -158,22 +159,19 @@ export default function ProjectsPage() {
             >
               {/* Project Image */}
               <div className="relative h-48 overflow-hidden">
-                <img
-                  src={project.imageLink}
-                  alt={project.title}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                  onError={(e) => {
-                    // First fallback: try original URL
-                    if (e.target.src !== project.imageLink) {
-                      e.target.src = project.imageLink;
-                    } else {
-                      // Final fallback: default image
-                      e.target.src = 'https://images.unsplash.com/photo-1518773553398-650c184e0bb3?w=800&h=600&fit=crop';
-                    }
-                  }}
-                />
+               <Image
+  src={project.imageLink}
+  alt={project.title}
+  layout="fill"
+  objectFit="cover"
+  className="group-hover:scale-105 transition-transform duration-300"
+  placeholder="blur"
+  blurDataURL="/blur-placeholder.png" // Optional low-quality placeholder
+  onError={(e) => {
+    e.target.src = 'https://images.unsplash.com/photo-1518773553398-650c184e0bb3?w=800&h=600&fit=crop';
+  }}
+/>
               </div>
-
               {/* Project Content */}
               <div className="p-6">
                 {/* Date */}

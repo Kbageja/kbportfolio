@@ -32,7 +32,7 @@ export default function ResumePage() {
   };
 
   return (
-    <div className="min-h-screen bg-neutral-950 p-4 sm:p-8 font-poppins">
+    <div className="sm:min-h-screen bg-neutral-950 p-4 sm:p-8 font-poppins">
       <div className="max-w-6xl mx-auto">
         {/* Header Section */}
         <div className="text-center mb-8">
@@ -40,7 +40,7 @@ export default function ResumePage() {
             <div className="p-2 rounded-full bg-gradient-to-r from-green-500 to-green-400">
               <FileText className="w-6 h-6 text-black" />
             </div>
-            <h1 className="text-3xl sm:text-4xl font-bold text-white bg-clip-text text-transparent">
+            <h1 className="text-3xl sm:text-4xl font-bold text-white bg-clip-text ">
               Resume
             </h1>
           </div>
@@ -80,7 +80,7 @@ export default function ResumePage() {
           </div>
           
           {/* PDF Viewer */}
-          <div className={`${isFullscreen ? 'h-[calc(100vh-120px)]' : 'h-[100vh]'} p-4`}>
+          <div className={`${isFullscreen ? 'h-[calc(78vh-120px)]' : 'h-[60vh] sm:h-[100vh]'} p-1`}>
             <iframe
               src={resumeViewUrl}
               className="w-full h-full rounded-lg bg-white shadow-inner"

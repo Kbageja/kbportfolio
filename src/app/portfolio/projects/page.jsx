@@ -1,10 +1,13 @@
 "use client"
 import React, { useState } from 'react';
-import { Calendar, Code, ExternalLink, Filter, Search, Github, Globe } from 'lucide-react';
+import { Calendar, Code, Filter, Search, Github, Globe } from 'lucide-react';
 
 export default function ProjectsPage() {
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedTech, setSelectedTech] = useState('');
+
+  // Helper function to convert Google Drive share links to direct image URLs
+
 
   // Sample projects object - replace with your actual data
   const projects = [
@@ -12,55 +15,55 @@ export default function ProjectsPage() {
       title: "Zwigato E-Commerce Platform",
       desc: "Full-stack e-commerce solution with payment integration, inventory management, and admin dashboard. Features include user authentication, product catalog, shopping cart, and order tracking.",
       techStack: "React.js, Node.js, Express.js, MongoDB, RazorPay",
-      imageLink: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&h=600&fit=crop",
+      imageLink: "/zwigato.png",
       date: "2024-04-15",
-      deployedLink: "https://ecommerce-demo.vercel.app",  
-      githubRepo: "https://github.com/username/ecommerce-platform"
+      deployedLink: "https://zwigato-omega.vercel.app/",  
+      githubRepo: "https://github.com/kbageja/zwigato"
     },
     {
       title: "AI Powered Health Dashboard",
       desc: "Real-time chat application powered by AI with natural language processing capabilities. Includes message encryption, file sharing, and smart response suggestions.",
       techStack: "Next.js, Gemini API, MongoDB, Typescript",
-      imageLink: "https://images.unsplash.com/photo-1587560699334-cc4ff634909a?w=800&h=600&fit=crop",
+      imageLink: "/aihealth.png",
       date: "2025-03-22",
       deployedLink: "https://health-prototype.vercel.app/",
       githubRepo: "https://github.com/kbageja/health-prototype"
     },
     {
-      title: "Task Management System",
+      title: "Nudgr - Task Management System",
       desc: "Collaborative project management tool with Kanban boards, team collaboration features, time tracking, and detailed analytics dashboard for productivity insights.",
-      techStack: "Next.js, Express.js, PostgreSQL, Node.js, Supabase , Prisma , Nodemailer , Redis , Typescript , TailwindCSS",
-      imageLink: "https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=800&h=600&fit=crop",
+      techStack: "Next.js, Express.js, PostgreSQL, Node.js, Supabase , Prisma , Nodemailer , Redis , Typescript , TailwindCSS , FramerMotion",
+      imageLink: "/nudgr.png", // This will be converted
       date: "2025-04-10",
       deployedLink: "https://nudgr.vercel.app",
       githubRepo: "https://github.com/kbageja/Nudgr"
     },
     {
-      title: "Weather Analytics Dashboard",
+      title: "Weather Website",
       desc: "Interactive weather data visualization platform with historical analysis, forecasting models, and customizable alerts for multiple locations worldwide.",
       techStack: "HTML , CSS , Javascript",
       imageLink: "https://images.unsplash.com/photo-1504608524841-42fe6f032b4b?w=800&h=600&fit=crop",
       date: "2023-04-08",
-      deployedLink: "https://weather-analytics.surge.sh",
-      githubRepo: "https://github.com/username/weather-dashboard"
+      deployedLink: "",
+      githubRepo: "https://github.com/kbageja/weather-app"
     },
-        {
+    {
       title: "Npm UI Package",
       desc: "Interactive weather data visualization platform with historical analysis, forecasting models, and customizable alerts for multiple locations worldwide.",
       techStack: "React.js , Material UI, TailwindCSS",
-      imageLink: "https://images.unsplash.com/photo-1504608524841-42fe6f032b4b?w=800&h=600&fit=crop",
+      imageLink: "/kverse.png",
       date: "2024-04-08",
-      deployedLink: "https://weather-analytics.surge.sh",
-      githubRepo: "https://github.com/username/weather-dashboard"
+      deployedLink: "",
+      githubRepo: "https://github.com/kbageja/Kverse2"
     },
     {
       title: "Bulk Emailer",
       desc: "Interactive weather data visualization platform with historical analysis, forecasting models, and customizable alerts for multiple locations worldwide.",
       techStack: "React.js , MongoDB , TailwindCSS , OpenAI Api, Node.js, NodeMailer , Express.js , ReactQuery",
-      imageLink: "https://images.unsplash.com/photo-1504608524841-42fe6f032b4b?w=800&h=600&fit=crop",
+      imageLink: "/bulkemailer.png",
       date: "2025-02-01",
-      deployedLink: "https://weather-analytics.surge.sh",
-      githubRepo: "https://github.com/username/weather-dashboard"
+      deployedLink: "",
+      githubRepo: "https://github.com/kbageja/AI-Email-project"
     },
   ];
 
@@ -160,10 +163,15 @@ export default function ProjectsPage() {
                   alt={project.title}
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                   onError={(e) => {
-                    e.target.src = 'https://images.unsplash.com/photo-1518773553398-650c184e0bb3?w=800&h=600&fit=crop';
+                    // First fallback: try original URL
+                    if (e.target.src !== project.imageLink) {
+                      e.target.src = project.imageLink;
+                    } else {
+                      // Final fallback: default image
+                      e.target.src = 'https://images.unsplash.com/photo-1518773553398-650c184e0bb3?w=800&h=600&fit=crop';
+                    }
                   }}
                 />
-
               </div>
 
               {/* Project Content */}

@@ -75,7 +75,7 @@ export default function Layout({ children }) {
  
 
       {/* Fixed Bottom Navbar */}
-      <nav className="fixed bottom-6 left-1/2 transform -translate-x-1/2 z-50 w-[85%] md:w-[24%]">
+      <nav className="fixed bottom-6 left-1/2 transform -translate-x-1/2 z-50 w-[88%] md:w-[24%]">
         <div className="bg-neutral-900 backdrop-blur-sm rounded-full px-2 py-2 shadow-[0_1px_2px_rgba(209,213,219,0.3)]">
           <div className="flex items-center justify-around gap-1">
             {navItems.map((item, index) => {
@@ -89,9 +89,9 @@ export default function Layout({ children }) {
                     <div className="w-px h-10 bg-gray-400" />
                     <button
                       onClick={handleSayHello}
-                      className="flex items-center gap-2 px-3 py-3 bg-gradient-to-r from-amber-500 to-red-500 hover:from-orange-400 hover:to-red-600 text-white rounded-full transition-all duration-200 text-sm font-medium shadow-lg hover:shadow-xl transform hover:scale-105"
+                      className="flex items-center gap-2 px-3 py-4  bg-gradient-to-r from-amber-500 to-red-500 hover:from-orange-400 hover:to-red-600 text-white rounded-full transition-all duration-200 text-sm font-medium shadow-lg hover:shadow-xl transform hover:scale-105"
                     >
-                      <span className="font-poppins">Say Hello!👋</span>
+                      <span className="font-poppins text-[8.5px] sm:text-sm">Say Hello!👋</span>
                     </button>
                   </div>
                 );

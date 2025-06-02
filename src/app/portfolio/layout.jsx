@@ -31,13 +31,6 @@ export default function Layout({ children }) {
     
   }, [pathname]);
 
-
-
-    
-
-
-
-
   function handleNav(itemid) {
     setActiveSection(itemid);
     router.push(`/portfolio/${itemid}`);
@@ -45,36 +38,31 @@ export default function Layout({ children }) {
 
   function handleSayHello() {
     alert("hello")
-    
   }
 
   return (
     <div className="min-h-screen bg-stone-950 text-white">
-      {/* Main Content */}
-      <main className="pb-32 pt-16 px-6">{children}</main>
-
-        <div className="absolute inset-0  rounded-2xl p-2  transition-shadow duration-200">
-          {/* Visible drag handle */}
-
-          
-          <span className="top-0 right-8  ">
-            <iframe
-            className='bg-transparent opacity-30 sm:opacity-80 sm:w-[20%] w-[93%]  sm:translate-x-[76vw] sm:h-[182px]'
-              style={{ 
-                borderRadius: "8px", 
-                pointerEvents: 'auto'
-              }}
-              src="https://open.spotify.com/embed/playlist/2JFOKkBTmthAls78hlHBir?utm_source=generator"
-              frameBorder="0"
-              allowFullScreen=""
-              allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-              loading="lazy"
-            />
-          </span>
+      {/* Spotify Embed - Static positioning */}
+      <div className="absolute top-4 right-4 z-30 pointer-events-none">
+        <div className="pointer-events-auto">
+          <iframe
+            className="bg-transparent opacity-30 sm:opacity-80 w-[320px] sm:w-[320px] h-[122px] sm:h-[182px]"
+            style={{ 
+              borderRadius: "8px"
+            }}
+            src="https://open.spotify.com/embed/playlist/2JFOKkBTmthAls78hlHBir?utm_source=generator"
+            frameBorder="0"
+            allowFullScreen=""
+            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+            loading="lazy"
+          />
         </div>
- 
+      </div>
 
-      {/* Fixed Bottom Navbar */}
+      {/* Main Content - Higher z-index to ensure interactivity */}
+      <main className="relative z-20 pb-32 pt-16 px-6">{children}</main>
+
+      {/* Fixed Bottom Navbar - Highest z-index */}
       <nav className="fixed bottom-6 left-1/2 transform -translate-x-1/2 z-50 w-[88%] md:w-[24%]">
         <div className="bg-neutral-900 backdrop-blur-sm rounded-full px-2 py-2 shadow-[0_1px_2px_rgba(209,213,219,0.3)]">
           <div className="flex items-center justify-around gap-1">

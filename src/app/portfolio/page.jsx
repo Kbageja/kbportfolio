@@ -56,6 +56,7 @@ export default function Portfolio() {
 
   return (
     <div className="min-h-screen z-50 text-white p-4 sm:p-6 lg:p-8 font-poppins">
+
       <div className="max-w-6xl mx-auto">
         <div className="mb-8 sm:mb-12 lg:mb-16">
           <div className="flex-1">

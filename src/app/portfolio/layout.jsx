@@ -59,7 +59,7 @@ export default function Layout({ children }) {
           
           <span className="top-0 right-8  ">
             <iframe
-            className='bg-transparent opacity-70 sm:w-[20%] w-[90%]  sm:translate-x-[76vw] sm:h-[182px]'
+            className='bg-transparent opacity-30 sm:opacity-80 sm:w-[20%] w-[93%]  sm:translate-x-[76vw] sm:h-[182px]'
               style={{ 
                 borderRadius: "8px", 
                 pointerEvents: 'auto'

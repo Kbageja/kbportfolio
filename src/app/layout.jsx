@@ -1,5 +1,9 @@
 import { Geist, Geist_Mono, Dancing_Script, Poppins } from "next/font/google";
 import "./globals.css";
+import Script from "next/script";
+import * as gtag from "../lib/gtag"; // Adjust path if needed
+import Analytics from "../components/Analytics"; // We will create this file
+
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -59,6 +63,23 @@ export default function RootLayout({ children }) {
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${fleur.variable} ${poppins.variable} antialiased`}
       >
+        <Script
+          src={`https://www.googletagmanager.com/gtag/js?id=${gtag.GA_TRACKING_ID}`}
+          strategy="afterInteractive"
+        />
+        <Script id="gtag-init" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', '${gtag.GA_TRACKING_ID}', {
+              page_path: window.location.pathname,
+            });
+          `}
+        </Script>
+
+        {/* Analytics Route Tracker */}
+        <Analytics />
         {children}
       </body>
     </html>

@@ -66,6 +66,15 @@ export default function ProjectsPage() {
       deployedLink: "",
       githubRepo: "https://github.com/kbageja/AI-Email-project"
     },
+    {
+      title: "AI Test Maker",
+      desc: "A Full Stack Application to generate tests based on your subject , No of Questions and Prompt also avoiding cheating using Security Measures",
+      techStack: "React.js , PostgreSQL , TailwindCSS , Gemini Api, Node.js, Clerk Auth , Express.js , ReactQuery , Prisma , Neon",
+      imageLink: "/testmaker.png",
+      date: "2025-07-01",
+      deployedLink: "https://testmaker-omega.vercel.app",
+      githubRepo: "https://github.com/Kbageja/TestGenerator"
+    },
   ];
 
   // Sort projects by date (newest first)

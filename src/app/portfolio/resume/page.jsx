@@ -9,7 +9,7 @@ export default function ResumePage() {
   // Extract the file ID from your Google Drive link
   // Example: https://drive.google.com/file/d/1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgvE2upms/view
   // The file ID is: 1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgvE2upms
-  const googleDriveFileId = "1o5N6UuCwggraioPg64xe3I8FHNHafyZo";
+  const googleDriveFileId = "1UHQSPJduMO26r_MkCimcGMl9olPbsO0F";
 
   // Google Drive embed URL for viewing
   const resumeViewUrl = `https://drive.google.com/file/d/${googleDriveFileId}/preview`;
